@@ -54,7 +54,6 @@ mongoService = MongoService()
 
 app = Flask(__name__)
 app.config["MONGO_URI"] = os.environ.get("MONGO_URL")
-#app.config["MONGO_URI"] = "mongodb://ealgar:3l3n4@hodor.uv.es:27017?authSource=admin"
 local_folder_path = os.environ.get("FOLDER_PATH")
 
 mongo.init_app(app)
