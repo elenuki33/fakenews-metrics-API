@@ -125,7 +125,6 @@ def best_f1_score(y_true, y_pred, average='weighted'):
     fpr, tpr, thresholds = roc_curve(y_true, y_pred)
     optimal_threshold = thresholds[np.argmax(tpr - fpr)]
 
-    # acc.append(accuracy_score(y_true, 1*(y_pred > optimal_threshold)))
     return f1_score(y_true, 1 * (y_pred > optimal_threshold), average=average)
 
 
@@ -159,7 +158,6 @@ def metricas(y_pred, y_test, prob=False, labels=None, title="", only_auc=False):
 def text_mining(text):
     df_probas = {}
     for idx, classifier in enumerate(MODELS):
-        # print("Modelo", idx + 1, "/", len(MODELS), "...")
         prediction = classifier.predict(text)
         df_probas.update(prediction.probas)
 
